@@ -37,7 +37,7 @@ def create_user():
     # return jsonify()
 
 # 지도 생성
-@app.route('/api/users/<string:username>/maps', methods=['POST'])
+@app.route('/api/maps', methods=['POST'])
 def create_map():
     # input
     # 시작 날짜
