@@ -1,16 +1,20 @@
-from http.server import SimpleHTTPRequestHandler, HTTPServer
+import sys
+from flask import (
+    Flask, 
+    redirect, 
+    request, 
+    jsonify, 
+    url_for, 
+    render_template,
+    Response
+)
+
+app = Flask(__name__)
 
 
-class CustomHandler(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/plain; charset=utf-8')
-        self.end_headers()
-        self.wfile.write("Hello krampoline!".encode('utf-8'))
+@app.route('/main')
+def get(): 
+    return jsonify({"hello": "world!"})
 
-
-PORT = 3000
-
-with HTTPServer(("", PORT), CustomHandler) as httpd:
-    print(f"서버는 {PORT} 포트에서 실행 중입니다. 종료하려면 Ctrl+C를 누르세요.")
-    httpd.serve_forever()
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=3000)
