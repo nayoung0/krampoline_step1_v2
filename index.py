@@ -12,7 +12,7 @@ from flask import (
 app = Flask(__name__)
 
 
-@app.route('/main')
+@app.route('/api/main')
 def get(): 
     return jsonify({"hello": "world!"})
 
