@@ -1,8 +1,10 @@
 # Python 3.6 이미지를 기반으로 함
 # FROM python:3.6-slim
-FROM krmp-d2hub-idock.9rum.cc/goorm/python:3.6-slim
+# FROM krmp-d2hub-idock.9rum.cc/goorm/python:3.6-slim
+FROM python:3.8-alpine
 
 RUN pip install flask 
+RUN pip install -U flask-cors
 
 # 작업 디렉토리 설정
 WORKDIR /app

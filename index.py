@@ -1,5 +1,6 @@
 
 from flask import Flask
+from flask_cors import CORS
 # from flask_sqlalchemy import SQLAlchemy
 from os import path
 
@@ -18,6 +19,8 @@ from flask import (
 )
 
 app = Flask(__name__)
+CORS(app, resources={r'/api/*': {"origins": "*"}})
+
 app.config['SECRET_KEY'] = 'semicircle_secret_key hollimoly guacamole roly poly'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///krampoline_step1_v2.db'
 # db.init_app(app)
