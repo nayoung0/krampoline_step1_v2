@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from os import path
 from models import User, Map
 from flask import (
@@ -20,6 +21,7 @@ from server import create_app
 # DB_NAME = 'krampoline_step1_v2.db'
 
 app = create_app()
+CORS(app, resources={r'/api/*': {"origins": "*"}})
 
 # app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'semicircle_secret_key hollimoly guacamole roly poly'
